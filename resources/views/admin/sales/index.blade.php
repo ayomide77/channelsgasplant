@@ -21,11 +21,14 @@
           <div class="col-xl-12 col-lg-12 col-sm-12 ">
             <div class="widget-content widget-content-area br-6">
                 <div class="table-responsive">
-                    {{-- CHECK IF saleS ARE NOT EMPTY --}}
-                    @if ($sales->isNotEmpty())
+
                         @php
                             $total = 0;
                         @endphp
+
+                    {{-- CHECK IF saleS ARE NOT EMPTY --}}
+                    @if ($sales->isNotEmpty())
+                        
                         <table
                            id="completeSalesTable"
                             class="table table-bsaleed table-striped table-checkable table-highlight-head">
@@ -78,7 +81,7 @@
                                     </tr>
                                     @php
                                     // SUM THE ORDER PRICE
-                                    $total += $sale->product->price * $sale->qty;
+                                    $total  += $sale->product->price * $sale->qty;
                                     @endphp
                                 @endforeach
 
@@ -86,10 +89,7 @@
                         </table>
                     @else
                         <div class="alert alert-info mb-4" role="alert">
-                            <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close"><svg> ...
-                                </svg></button>
-                            <strong>Info!</strong> {{ $info ?? '' }}</button>
+                            <strong>Info!</strong> {{'No Sales Made'}}</button>
                         </div>
                     @endif
                 </div>
@@ -98,7 +98,7 @@
                        <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="btn btn-outline-info mb-2"><strong>Total Sales:
-                                &#8358;{{ $total}}</strong></div>
+                                &#8358;{{ $total ?? ''}}</strong></div>
                             </div>
                           
                         </div> 

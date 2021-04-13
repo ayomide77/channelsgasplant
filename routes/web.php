@@ -71,7 +71,9 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::patch('password/{id}','UserController@resetUserpassword')->name('resetPassword');
 
     //<-------------- TICKET ------------------>
-    Route::resource('tickect','AdminTicketController');
+    Route::get('ticket/attended','AdminTicketController@attended')->name('attended');
+
+    Route::resource('ticket','AdminTicketController');
     //<-------------- TICKET ------------------>
 
     Route::resource('profile','ProfileController');

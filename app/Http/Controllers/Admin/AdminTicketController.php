@@ -23,6 +23,13 @@ class AdminTicketController extends Controller
         return view('admin.ticket.index',compact('tickets'));
     }
 
+
+    // RETURN INDEX PAGE FOR ATTENDED TICKET VIEW
+    public function attended(){
+        $tickets = Ticket::where('status',1)->get();
+        return view('admin.ticket.attended',compact('tickets'));
+    }
+
 // SINGLE TICKET VIEW PAGE
     public function show($id){
 

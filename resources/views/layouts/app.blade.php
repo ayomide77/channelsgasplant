@@ -150,6 +150,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     @yield('custom_scripts')
+    <script>
+    $(window).on('load',function(){
+    setTimeout(function(){ // allowing 3 secs to fade out loader
+    $('.preloader').fadeOut('slow');
+    },2000);
+    });
+    </script>
 </body>
 
 </html>

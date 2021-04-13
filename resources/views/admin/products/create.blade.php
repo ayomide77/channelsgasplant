@@ -31,7 +31,11 @@
                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                                 <h4>All fields are required*</h4>
                             </div>
+                        {{-- include alert info card --}}
+                        @include('admin.partials._alerts')
+                        {{-- include alert info card --}}
                         </div>
+                           
                     </div>
                     <div class="widget-content widget-content-area" >
                         <form action="{{ route('admin.products.store') }}" enctype="multipart/form-data"

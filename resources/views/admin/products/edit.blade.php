@@ -31,7 +31,11 @@
             </div>
 
             <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12" style="margin-bottom:24px;">
+              
+                {{-- include alert info card --}}
                 @include('admin.partials._alerts')
+                {{-- include alert info card --}}
+                
                 <div class="statbox widget box box-shadow">
                     <div class="widget-header">                                
                         <div class="row">

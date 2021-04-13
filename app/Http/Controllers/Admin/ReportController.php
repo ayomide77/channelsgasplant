@@ -28,10 +28,10 @@ public function productReports(Request $request){
     ]
     );
 
-    $orders = Order::where('product_id',$request->prodId)->where('status',1)->get();
+    $productReports = Order::where('product_id',$request->prodId)->where('status',1)->get();
 
-    dd($orders);
-
+    // dd($orders);
+    return view('admin.report.productReport',compact('productReports'));
 }
 
 // FUNCTION TO GET SALES REPORT USING DATE PICKER
@@ -44,21 +44,22 @@ public function salesReport(Request $request){
     );
     //PARSE DATE USING LARAVEL CARBON
     $startDate = new Carbon($request->startDate);
-    $startDate = new Carbon($request->endDate);
+    $endDate = new Carbon($request->endDate);
 
     // CHECK IF DATES ARE EQUAL AND QUERY WITH SINGLE DATE
-    $result = $startDate->eq($startDate);
+    $result = $startDate->eq($endDate);
 
-    if($request){
-    $salesReport = Order::where('status',1)->whereDate('created_at',$startDate)->get();
+    if($result){
+
+    $salesReport = Order::where('status',1)->whereDate('updated_at',$startDate)->get();
+
     }else{
-    $salesReport = Order::where('status',1)->whereBetween('created_at', [$startDate, $endDate])->get();
+
+    $salesReport = Order::where('status',1)->whereBetween('updated_at', [$startDate, $endDate])->get();
     }
 
     return view('admin.report.salesReport',compact('salesReport'));
 }
-
-
 
 
 }

@@ -129,10 +129,13 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12" style="margin-bottom:24px;">
                         <div class="statbox widget box box-shadow">
-                            <div class="widget-header">                                
+                            <div class="widget-header"> 
+                                <div class="widget-heading">
+                                    <h5 class="">Pedning Orders</h5>
+                                </div>                               
                                 <div class="row">
                                   {{--  ORDERS TABLE--}}
-                            @include('admin.includes.orderDataTable',['orderTableTitle'=>'All Orders','info'=>'No Orders Found'])
+                            @include('admin.includes.orderDataTable',['orderTableTitle'=>'All Orders','info'=>'No Pending Orders Found'])
                             {{--  ORDERS  TABLE--}}
                                 </div>
                             </div>
@@ -143,10 +146,14 @@
                 {{-- RECENT ORDERS --}}
 
 
+                 {{--  CURRENT SALES--}}
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12" style="margin-bottom:24px;">
                         <div class="statbox widget box box-shadow">
-                            <div class="widget-header">                                
+                            <div class="widget-header">   
+                                <div class="widget-heading">
+                                    <h5 class="">Current Sales</h5>
+                                </div>                             
                                 <div class="row">
                                   {{-- SALES TABLE --}}
                                   @include('admin.includes.salesTable',['orderTableTitle'=>'Current Sales','info'=>'No Sales Made For
@@ -158,9 +165,14 @@
                         </div>
                     </div>
                 </div>
+                 {{--  CURRENT SALES--}}
+
 
                 {{-- TOP SELLING PRODUCTS TABLE --}}
+               {{--  TABLE --}}
                @include('admin.includes.TopSellingProductsTable')
+               {{--  TABLE --}}
+               
                 {{-- TOP SELLING PRODUCTS TABLE --}}
             </div>
 
