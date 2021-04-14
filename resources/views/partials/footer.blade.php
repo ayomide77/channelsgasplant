@@ -7,7 +7,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-about pt-30">
                             <a href="#"><img src="{{asset('/chnlsgasplant/images/logo-w.png')}}" alt="logo"></a>
-                            <p>Donec vel ligula ornare, finibus ex at, vive risus. Aenean velit ex, finibus elementum eu, dignissim varius augue. </p>
+                            <p>At Channels Gas Plant Limited, we ensure customer satisfaction by providing top notch service delivery at unbeatble prices.</p>
                             <span><i class="fa fa-globe"></i>www.chnlsgasplant.com/</span>
                         </div>
                     </div>
@@ -40,28 +40,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="footer-title pt-30">
-                            <h5>Recent News</h5>
-                        </div>
-                        <div class="footer-news">
-                            <ul>
-                                <li>
-                                    <div class="f-news">
-                                        <h6 class="news-title"><a href="#">Nullam condimenum varius ipsum.</a></h6>
-                                        <a class="news-date" href="#"><i class="fa fa-calendar"></i> 15 Aug 2019</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="f-news">
-                                        <h6 class="news-title"><a href="#">Nullam condimenum varius ipsum.</a></h6>
-                                        <a class="news-date" href="#"><i class="fa fa-calendar"></i> 15 Aug 2019</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    
+                    <div class="col-lg-5 col-md-8 col-sm-8">
                         <div class="footer-title pt-30">
                             <h5>Get In Tuch</h5>
                         </div>

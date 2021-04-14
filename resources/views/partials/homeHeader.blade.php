@@ -78,10 +78,6 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ route('contact') }}">How it Works</a>
-                                </li>
-
-                                <li class="nav-item">
                                     <a href="{{ route('contact') }}">Contact Us</a>
                                 </li>
 
@@ -89,6 +85,10 @@
                                     <a href="{{ route('about') }}">About Us</a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a class="{{ request()->is('testimonial') ? 'active' : '' }}"
+                                        href="{{ route('testimonial.create') }}">Testimonial</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="cart-search ">

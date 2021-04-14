@@ -65,10 +65,7 @@
                                         @endif
                                     </ul>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="{{ request()->is('contact') ? 'active' : '' }}"
-                                        href="{{ route('contact') }}">How it Works</a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="{{ request()->is('contact') ? 'active' : '' }}"
                                         href="{{ route('contact') }}">Contact Us</a>
@@ -78,6 +75,11 @@
                                 <li class="nav-item">
                                     <a class="{{ request()->is('about') ? 'active' : '' }}"
                                         href="{{ route('about') }}">About Us</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="{{ request()->is('testimonial') ? 'active' : '' }}"
+                                        href="{{ route('testimonial.create') }}">Testimonial</a>
                                 </li>
                             </ul>
                         </div>

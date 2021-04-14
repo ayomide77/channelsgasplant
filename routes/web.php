@@ -18,8 +18,10 @@
     Route::get('contact', 'GeneralController@contact')->name('contact');
     Route::get('products','GeneralController@products')->name('products');
     Route::get('product/{slug}','GeneralController@show')->name('product');
+    Route::resource('testimonial','TestimonialController');
     // <------------ ADMIN LOGIN ROUTE ------------->
     Route::get('admin/auth','Admin\AuthController@login')->name('adminLogin');
+
 
 
 // CUSTOMER CART ROUTE

@@ -107,13 +107,13 @@ public function completeOrder(Request $request){
     $user->save();
 
     //return to dashboard
-    // Mail::send('mails.sendMailReceipt', ['name'=>\Auth::user()->name], function ($message) {
-    //     $message->sender('admin@chnlsgasplant.com', 'CGP');
-    //     $message->from('admin@chnlsgasplant.com', 'John Doe');
-    //     $message->sender('admin@chnlsgasplant.com', 'John Doe');
-    //     $message->to(\Auth::user()->email, \Auth::user()->name);
+    Mail::send('mails.sendMailReceipt', ['name'=>\Auth::user()->name], function ($message) {
+        $message->sender('admin@chnlsgasplant.com', 'CGP');
+        $message->from('admin@chnlsgasplant.com', 'John Doe');
+        $message->sender('admin@chnlsgasplant.com', 'John Doe');
+        $message->to(\Auth::user()->email, \Auth::user()->name);
        
-    // });
+    });
     return redirect()->route('home')->with('success','Your order has been received, our dispatch will be at your location shortly.');
 }
 
