@@ -20,9 +20,12 @@
     Route::get('product/{slug}','GeneralController@show')->name('product');
     Route::resource('testimonial','TestimonialController');
     // <------------ ADMIN LOGIN ROUTE ------------->
+
     Route::get('admin/auth','Admin\AuthController@login')->name('adminLogin');
 
-
+    Route::get('/test-email', function () {
+        return view('emails.SendEmailReceipt');
+    });
 
 // CUSTOMER CART ROUTE
 Route::group(['prefix' => 'cart'], function () {
@@ -78,6 +81,15 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::resource('ticket','AdminTicketController');
     //<-------------- TICKET ------------------>
 
+
+    //<-------- SEND RECEIPT ------------------>
+    // Route::post('report/send','ReportController@salesReport')->name('sendreceipt');
+
+
+    // <-------- EMAIL CONTROLLER ------->
+    Route::get('email/receipt/{id}/{userid}','EmailController@sendReceipt')->name('sendreceipt');
+    // <-------- EMAIL CONTROLLER ------->
+
     Route::resource('profile','ProfileController');
     Route::resource('products','ProductController');
     Route::resource('products','ProductController');
@@ -85,6 +97,3 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::resource('staff','StaffController');
     Route::resource('users','UserController');
 });
-
-
-

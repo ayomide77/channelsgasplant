@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Testimonial;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class TestimonialController extends Controller
 {
     /**
@@ -33,9 +34,16 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
-        //
+        
+        if (!Auth::check()) {
+
+            return redirect()->route('login')->with('error','Please login or create account to continue');
+        
+            } 
+
     }
 
     /**

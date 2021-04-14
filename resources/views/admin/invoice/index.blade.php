@@ -65,15 +65,37 @@
                                                             <h1>Invoice</h1>
 
                                                         </div>
+                                                        
                                                         <div class="container-fluid" >
                                                             <div class="row">
                                                                 <div class="col-md-12 col-md-offset-3 body-main">
                                                                     <div class="col-md-12">
                                                                         <div class="row">
-                                                                            <div class="col-md-4"> <img class="img"
+                                                                            <div class="col-md-4"> 
+                                                                                   <img class="img mb-2"
                                                                                     alt="Invoce"
                                                                                     src="{{ asset('chnlsgasplant/images/favicon.png') }}"
-                                                                                    height="50" width="50" /> </div>
+                                                                                    height="20" width="20" /> CGP LTd
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-12 col-12">
+                                                                                            <h6 class=" inv-title">Payment Info:</h6>
+                                                                                        </div>
+                                                                                        <div class="col-sm-4 col-12">
+                                                                                            <p class=" inv-subtitle">Bank Name: </p>
+                                                                                        </div>
+                                                                                        <div class="col-sm-8 col-12">
+                                                                                            <p class="">Bank of America</p>
+                                                                                        </div>
+                                                                                        <div class="col-sm-4 col-12">
+                                                                                            <p class=" inv-subtitle">Account: </p>
+                                                                                        </div>
+                                                                                        <div class="col-sm-8 col-12">
+                                                                                            <p class="">1234567890</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                 </div>
+
+                                                                                 
                                                                             <div class="col-md-8 text-right">
                                                                                 <h4 style="color: #F81D2D;">
                                                                                     <strong>{{ $user->name }}</strong>

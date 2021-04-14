@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmailReceipt;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductCartController extends Controller
@@ -44,6 +45,7 @@ $quantity = request('quantity');
 public function cartCheckout()
 {
 
+    // CHECK IF USER IS LOGGED IN
     if (!Auth::check()) {
 
     return redirect()->route('login')->with('error','Please login or create account to continue');
@@ -103,17 +105,29 @@ public function completeOrder(Request $request){
     $user->address = $request->address;
     $user->state = $request->state;
     $user->city = $request->city;
+    $user->email = $request->email;
     $user->country = $request->country;
     $user->save();
 
     //return to dashboard
-    Mail::send('mails.sendMailReceipt', ['name'=>\Auth::user()->name], function ($message) {
-        $message->sender('admin@chnlsgasplant.com', 'CGP');
-        $message->from('admin@chnlsgasplant.com', 'John Doe');
-        $message->sender('admin@chnlsgasplant.com', 'John Doe');
-        $message->to(\Auth::user()->email, \Auth::user()->name);
+    // Mail::send('mails.sendMailReceipt', ['name'=>\Auth::user()->name], function ($message) {
+    //     $message->sender('admin@chnlsgasplant.com', 'CGP');
+    //     $message->from('admin@chnlsgasplant.com', 'John Doe');
+    //     $message->sender('admin@chnlsgasplant.com', 'John Doe');
+    //     $message->to(\Auth::user()->email, \Auth::user()->name);
        
-    });
+    // });
+
+    
+
+    // $data = [
+    //     'message' => 'Order Recieved',
+    //     'name'=>\Auth::user()->name,
+    //     'email'=>\Auth::user()->email,
+    //     'orderno'=>$order->order_no];
+
+    // Mail::to($request->email)->send(new SendEmailReceipt($data));
+
     return redirect()->route('home')->with('success','Your order has been received, our dispatch will be at your location shortly.');
 }
 

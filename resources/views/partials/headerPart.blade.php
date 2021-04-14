@@ -78,7 +78,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="{{ request()->is('testimonial') ? 'active' : '' }}"
+                                    <a class="{{ request()->is('testimonial/create') ? 'active' : '' }}"
                                         href="{{ route('testimonial.create') }}">Testimonial</a>
                                 </li>
                             </ul>

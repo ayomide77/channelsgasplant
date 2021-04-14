@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('staff_id')->nullable();
             $table->string('order_no');
-            $table->string('invoice_no')->nullable();
+            $table->string('receipt_no')->nullable();
             $table->string('address');
             $table->string('city');
             $table->string('country');

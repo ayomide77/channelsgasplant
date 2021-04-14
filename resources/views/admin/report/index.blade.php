@@ -100,7 +100,7 @@
                                 </p>
 
                                 <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                  Use the product report tab to pull the reports of a specified products. Only sold products will appear in the drop down list.
                                 </p>      
                             </div>
                             
@@ -183,8 +183,11 @@
                                     </form>
                                 </div>
                                 {{-- GENERATE REPORT BASED ON SALES  STARTS --}}
-
                                 </p>
+
+                                <p>
+                                    Use the sales report tab to pull all sales made in a particular time,please note that both date fields are required.
+                                  </p>  
                             </div>
                         </div>
 

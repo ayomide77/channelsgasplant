@@ -31,9 +31,6 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
     
-        <!--  BEGIN TOPBAR  -->
-       {{-- @include('admin.partials._adminNavBar') --}}
-        <!--  END TOPBAR  -->
         
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
@@ -41,13 +38,15 @@
                 <div class="row invoice layout-top-spacing">
                   
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                       {{-- include flash mesage --}}
+                                @include('admin.partials._alerts')
+                                {{-- include flash mesage --}}
                     @if(count($user_reciepts) > 0)
                     <div class="app-hamburger-container">
                         <div class="hamburger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu chat-menu d-xl-none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div>
                     </div>
                     <div class="doc-container">
                        
-
                         <div class="invoice-container">
                             
                             <div class="invoice-inbox">
@@ -84,6 +83,7 @@
                                                 <div class="col-sm-7 align-self-center">
                                                     <p class="inv-customer-name">{{$user->name}}</p>
                                                     <p class="inv-street-addr">{{$user->address}}</p>
+                                                    <p class="inv-street-addr">{{$user->phone}}</p>
                                                     <p class="inv-email-address">{{$user->email}}</p>
                                                 </div>
                                                 <div class="col-sm-5 align-self-center  text-sm-right order-2">
@@ -137,21 +137,7 @@
                                                 <div class="col-sm-5 col-12 order-sm-0 order-1">
                                                     <div class="inv--payment-info">
                                                         <div class="row">
-                                                            <div class="col-sm-12 col-12">
-                                                                <h6 class=" inv-title">Payment Info:</h6>
-                                                            </div>
-                                                            <div class="col-sm-4 col-12">
-                                                                <p class=" inv-subtitle">Bank Name: </p>
-                                                            </div>
-                                                            <div class="col-sm-8 col-12">
-                                                                <p class="">Bank of America</p>
-                                                            </div>
-                                                            <div class="col-sm-4 col-12">
-                                                                <p class=" inv-subtitle">Account Number : </p>
-                                                            </div>
-                                                            <div class="col-sm-8 col-12">
-                                                                <p class="">1234567890</p>
-                                                            </div>
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,22 +172,26 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                        {{-- SEND EMAIL BUTTON    --}}
+                                        <div class="btn-group mb-4" role="group">
+                                        <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn-primary">Go Back</a>
+                                        {{-- <a href="{{route("admin.sendreceipt",['id'=>$receipt_data->receipt_no,'userid'=>$receipt_data->userid])}}" class="btn btn-sm btn-info sendreceipt">Send Receipt</a> --}}
+                                        <a href="{{ url("admin/email/receipt/$receipt_data->receipt_no/$receipt_data->user_id") }}" class="btn btn-sm btn-info sendreceipt">Send Receipt</a>
+                                        </div>
+                                        {{-- SEND EMAIL BUTTON    --}}
                                         </div>
                                     </div>
-                                  
                                 </div>
-
 
                             </div>
 
-                            <div class="inv--thankYou">
+                            {{-- <div class="inv--thankYou">
                                 <div class="row">
                                     <div class="col-sm-12 col-12">
                                         <p class="">Thank you for doing Business with us.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                         
@@ -226,4 +216,8 @@
 @endsection
 
 
-
+{{-- CUSTOM STYLING FOR DASHBOARD STARTS --}}
+@section('custom_scripts')
+@include('admin.includes.sendReceiptJs')
+@endsection
+{{-- CUSTOM STYLING FOR DASHBOARD ENDS --}}

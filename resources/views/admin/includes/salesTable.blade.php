@@ -59,7 +59,10 @@
                     <div>&#8358;{{ $order->qty * $order->product->price }}</div>
                 </td>
                 <td>
-                    <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-info">Generate Receipt</a>
+                    <div class="btn-group" role="group">
+                    <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-primary">View Receipt</a>
+                    {{-- <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-info">Send Receipt</a> --}}
+                    </div>
                 </td>
 
             </tr>

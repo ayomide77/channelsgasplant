@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                                    <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" placeholder="you@example.com"
                                         value="{{ Auth::user()->email ?? '' }}" name="email" required>
 

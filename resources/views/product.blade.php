@@ -45,10 +45,7 @@
                             <ul>
                                 <li class="head">Share :</li>
                                 <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
                         <div class="price pt-15">
@@ -59,12 +56,12 @@
                             <p>{!!$product->description!!}</p>
                         </div>
                         <div class="quanty-availability pt-25">
-                            <div class="quanty">
+                            {{-- <div class="quanty">
                                 <p>Qty:</p>
                                 <div class="qty">
                                     <input type="number" class="count" value="1">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="availability">
                                 <p>Availability :</p>
                                 <p>IN STOCK</p>
@@ -72,10 +69,9 @@
                         </div>
                         <div class="products-add pt-30">
                             <ul>
-                                <li><a href="#">Add to Cart</a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                <li class="add_to_cart_button">
+                                    <a href="{{ route('cart.create', ['id' => $product->id]) }}">Add to Cart</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -119,10 +115,9 @@
 
     <!--====== PRODUCTS TAB PART ENDS ======-->
 
-
-{{-- INCLUDE CUSTOM JAVASCRIPT FILE --}}
-@section('custom_scripts')
-   @include('includes.addToCartJs')
 @endsection
 
+ {{-- INCLUDE CUSTOM JAVASCRIPT FILE --}}
+ @section('custom_scripts')
+ @include('includes.addToCartJs')
 @endsection

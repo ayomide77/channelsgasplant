@@ -11,14 +11,14 @@ class SendEmailReceipt extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($details)
+    public $data;
+    public $receiptno;
+
+    
+    public function __construct($data,$receiptno)
     {
-        $this->details = $details;
+        $this->data = $data;
+        $this->receiptno = $receiptno;
     }
 
     /**
@@ -28,9 +28,16 @@ class SendEmailReceipt extends Mailable
      */
     public function build()
     {
-        // return $this->view('view.name');
+        
+        $address = 'admin@chnlsgasplant.com';
+        $subject = 'Channels Gas Plant - Order Received';
+        $name = 'Sales Department';
 
-        return $this->subject('Mail from admin@chnlsgasplant.com')
-        ->view('mails.SendEmailReceipt');
+        return $this->view('emails.SendEmailReceipt')
+                    ->from($address, $name)
+                    ->replyTo($address, $name)
+                    ->subject($subject)
+                    ->with([ 'orderdata' => $this->data,'receiptno'=> $this->receiptno]);
     }
+    
 }

@@ -9,7 +9,7 @@
 
 <!--====== INCLUDE BANNER PART STARTS======-->
 @section('slider')
-    @include('partials.pageBanner',['bannerContent'=>'Contact Us','bannerImg'=>'page-banner.jpg'])
+    @include('partials.pageBanner',['bannerContent'=>'Testimonial','bannerImg'=>'page-banner.jpg'])
 @endsection
 <!--====== INCLUDE BANNER PART ENDS======-->
 

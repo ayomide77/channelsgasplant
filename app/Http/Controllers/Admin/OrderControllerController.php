@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Order;
 use App\User;
 use DB;
@@ -43,8 +44,10 @@ class OrderControllerController extends Controller
     public function update(Request $request)
     {
         $staffId = \Auth::user()->id;
-        $invoice_no = 'cgp'.mt_rand(0,12345);
-        $order = Order::where('order_no',$request->orderno)->update(array('status'=>1,'staff_id'=>$staffId,'invoice_no'=>$invoice_no,'updated_at'=>now()));
+        // $receipt_no = 'cgp'.mt_rand(0,12345);
+          $random = Str::random(10,5);
+        $receipt_no = strtolower($random);
+        $order = Order::where('order_no',$request->orderno)->update(array('status'=>1,'staff_id'=>$staffId,'receipt_no'=>$receipt_no,'updated_at'=>now()));
 
         if($order){
         return response()->json(['code'=>200]);
@@ -87,7 +90,7 @@ class OrderControllerController extends Controller
         }
 
         //   Generate Random Number For Invoicing
-        // $invoice_No  = 'invoice_no'.mt_rand(0,12345);
+        // $receipt_no  = 'receipt_no'.mt_rand(0,12345);
         return view('admin.invoice.index',compact('user_invoice','user'));
     }
 
@@ -116,7 +119,7 @@ class OrderControllerController extends Controller
         ['order_no', '=', $order_no]])->first();
 
         $receipt_date = $user_order->updated_at;
-        $receipt_no = $user_order->invoice_no;
+        $receipt_no = $user_order->receipt_no;
         //Get User using user_id from Order Table
         $user = User::where('id',$user_order->user_id)->first();
 

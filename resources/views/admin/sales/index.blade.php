@@ -54,6 +54,9 @@
                                     <th>
                                         <div>Date Sold</div>
                                     </th>
+                                    <th>
+                                        <div>Receipt</div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,6 +80,10 @@
                                         </td>
                                         <td>
                                             <div>{{\Carbon\Carbon::parse($sale->updated_at)->toFormattedDateString()}}</div>
+                                        </td>
+
+                                        <td>
+                                            <a href="{{route("admin.generatereciept",$sale->order_no)}}" class="btn btn-sm btn-info">Receipt</a>
                                         </td>
                                     </tr>
                                     @php

@@ -13,7 +13,6 @@
 @endsection
 <!--====== INCLUDE BANNER PART ENDS======-->
 
-
 @section('content')
 
     <!--====== PRODUTCT PAGE PART START ======-->
@@ -29,7 +28,8 @@
                                 <div class="row">
                                     @foreach ($products as $product)
                                         {{-- INCLUDE PRODUCT CARD --}}
-                                        @include('partials.products')
+                                        @include('includes.productsCard')
+                                        {{-- INCLUDE PRODUCT CARD --}}
                                     @endforeach
                                 </div>
                             </div> <!-- products Grid-->
@@ -51,9 +51,10 @@
         @endif
     </div>
 
-    {{-- INCLUDE CUSTOM JAVASCRIPT FILE --}}
-@section('custom_scripts')
-    @include('includes.addToCartJs')
 @endsection
 
+ {{-- INCLUDE CUSTOM JAVASCRIPT FILE --}}
+ @section('custom_scripts')
+ @include('includes.addToCartJs')
 @endsection
+
