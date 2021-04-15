@@ -17,6 +17,9 @@
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                                 @if (count($salesReport)>0)
+                                @php
+                                $total = 0;
+                                @endphp
                                 <table class="table table-bordered table-striped table-checkable table-highlight-head">
                                     <thead>
             
@@ -59,12 +62,25 @@
                                                     </td>
                                                 </div>
                                             </tr>
+                                            @php
+                                            // GET TOTAL ORDERS PRICE
+                                            /*
+                                            this is achived by getting the order qty and multiply it 
+                                            */ 
+                                            $total += $report->qty * $report->product->price;
+                                            @endphp
+
                                         @endforeach 
                                     </tbody>
                                 </table>
-                                <div class="col-sm-12 col-md-6">
-                                    {{-- {!! $orders->links() !!} --}}
-                                </div>
+                              
+                            <div class="row">
+                            <div class="col-sm-12 col-md-6"><div class="btn btn-outline-info mb-2"><strong>Total Sales: &#8358;{{ $total }}</strong></div></div>
+                            <div class="col-sm-12 col-md-6">
+                            {{-- {!!$report->links()!!} --}}
+                            </div>
+                            </div>
+
                             @else
                                 <div class="alert alert-info mb-4 mt-2" role="alert">
                                     <strong>Info!</strong> {{ 'No Sales Found' }}</button>

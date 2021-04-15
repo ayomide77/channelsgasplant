@@ -27,7 +27,7 @@
                             @endif
                         </strong>
                         <h5 class="card-title mt-2">{{ $product->name }}</h5>
-                        <p class="card-text meta-info meta-time mb-2"><small class="">3 mins ago</small></p>
+                        <p class="card-text meta-info meta-time mb-2"><small class="">{{ \Carbon\Carbon::parse($product->created_at)->toFormattedDateString() }}</small></p>
                         <p class="card-text mb-4">{{ $product->description }}</p>
                         <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-outline-info mt-2">View</a>
                         <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-outline-warning mt-2">Edit</a>

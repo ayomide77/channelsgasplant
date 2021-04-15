@@ -15,9 +15,9 @@
             <tr>
                 <th>Customer</th>
                 <th>Product</th>
-                <th>Size</th>
+                {{-- <th>Size</th> --}}
                 <th>Order No</th>
-                <th>QTY</th>
+                <th>Order(s)</th>
                 <th>Status</th>
                 <th>Date Ordered</th>
                 <th>Confirmed Date</th>
@@ -30,9 +30,9 @@
                 <tr>
                     <td>{{ $order->user->name }}</td>
                     <td>{{ $order->product->name }}</td>
-                    <td>{{ $order->product->size }}</td>
+                    {{-- <td>{{ $order->product->size }}</td> --}}
                     <td>{{'#'}}-{{ $order->order_no }}</td>
-                    <td>{{ $order->qty }}</td>
+                    <td>{{ $order->count }}</td>
                     <td>
                         @if ($order->status == 1)
                             <span class="badge outline-badge-success">{{ 'Completed' }}</span>

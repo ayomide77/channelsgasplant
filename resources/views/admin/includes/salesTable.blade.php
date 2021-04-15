@@ -1,7 +1,7 @@
 @if ($currentSales->isNotEmpty())
-@php
+{{-- @php
     $total = 0;
-@endphp
+@endphp --}}
 <div class="table-responsive">
 <table class="table table-bordered table-striped table-checkable table-highlight-head">
     <thead>
@@ -13,22 +13,25 @@
             <th>
                 <div>Product</div>
             </th>
-            <th>
+            {{-- <th>
                 <div>Size</div>
-            </th>
+            </th> --}}
             <th>
                 <div>Order No</div>
             </th>
             <th>
-                <div>Unit Price</div>
+                <div>Status</div>
             </th>
+            {{-- <th>
+                <div>Unit Price</div>
+            </th> --}}
             <th>
-                <div>QTY</div>
+                <div>Order(s)</div>
             </th>
 
-            <th>
+            {{-- <th>
                 <div>Toatal Price</div>
-            </th>
+            </th> --}}
             <th>
                 <div>Receipt</div>
             </th>
@@ -43,48 +46,57 @@
                 <td>
                     <div>{{ $order->product->name }}</div>
                 </td>
-                <td>
+                {{-- <td>
                     <div>{{ $order->product->size }}</div>
-                </td>
+                </td> --}}
                 <td>
                     <div>{{'#-'}}{{ $order->order_no }}</div>
                 </td>
-                <td>
+                {{-- <td>
                     <div>&#8358;{{ $order->product->price }}</div>
-                </td>
+                </td> --}}
+
+                 <td>
+                        @if ($order->status == 1)
+                            <span class="badge outline-badge-success">{{ 'Completed' }}</span>
+                        @else
+                            <span class="badge outline-badge-warning">{{ 'Pending' }}</span>
+                        @endif
+                    </td>
+
                 <td>
-                    <div>{{ $order->qty }}</div>
+                    <div>{{ $order->count }}</div>
                 </td>
-                <td>
+                {{-- <td>
                     <div>&#8358;{{ $order->qty * $order->product->price }}</div>
-                </td>
+                </td> --}}
                 <td>
                     <div class="btn-group" role="group">
-                    <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-primary">View Receipt</a>
+                    <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-success">View Receipt</a>
                     {{-- <a href="{{route("admin.generatereciept",$order->order_no)}}" class="btn btn-sm btn-info">Send Receipt</a> --}}
                     </div>
                 </td>
 
             </tr>
 
-            @php
+            {{-- @php
                 // GET TOTAL ORDERS PRICE
                 /*
                 this is achived by getting the order qty and multiply it 
                 */ 
                 $total += $order->qty * $order->product->price;
-            @endphp
+            @endphp --}}
         @endforeach
        
     </tbody>
 </table>
 
-<div class="row">
+{{-- <div class="row">
 <div class="col-sm-12 col-md-6"><div class="btn btn-outline-info mb-2"><strong>Total Sales: &#8358;{{ $total }}</strong></div></div>
 <div class="col-sm-12 col-md-6">
     {!!$currentSales->links()!!}
 </div>
-</div>
+</div> --}}
 @else
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mx-auto">
 <div class="alert alert-info mb-4" role="alert">

@@ -28,14 +28,26 @@ class HomeController extends Controller
 
 
     //GET LATEST ORDERS 
-    $orders = Order::where('status',0)->get();
+    //GELL ALL ORDERS , COUNT order_no AND RETURN BY GROUPED.
+    $orders = Order::select('*', DB::raw('count(order_no) count'))->groupBy('order_no')->where('status',false)->get();
+    //GELL ALL ORDERS
     $totalOrders = Order::all();
+    //GET ALL USERS
     $totalUsers = User::all();
+    //GET ALL COMPLETED ORDERS
     $totalSales = Order::where('status',1)->get();
 
 
     //GET TODAY COMPLETE ORDERS , BY CHAINING QUERIES
-    $currentSales = Order::where('status','=',1)->whereDate('updated_at', Carbon::today())->paginate(10);
+      //GELL ALL ORDERS , COUNT order_no AND RETURN BY GROUPED.
+      $currentSales = Order::select('*',
+      DB::raw('count(order_no)count'))
+      ->groupBy('order_no')
+      ->where('status',true)
+      ->whereDate('updated_at', Carbon::today())
+      ->get();
+
+    // $currentSales = Order::where('status','=',1)->whereDate('updated_at', Carbon::today())->paginate(10);
 
     $topSales = DB::table('products')
     ->leftJoin('orders','products.id','=','orders.product_id')
