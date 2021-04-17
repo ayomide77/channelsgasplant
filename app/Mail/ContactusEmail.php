@@ -32,10 +32,11 @@ class ContactusEmail extends Mailable
          $subject = 'Contact Us Message';
          $address = 'admin@chnlsgasplant.com';
          $name = $this->data['name'];
+         $email = $this->data['email'];
 
          return $this->view('emails.SendContactusEmail')
          ->from($address, $name)
-         ->replyTo($address, $name)
+         ->replyTo($email, $name)
          ->subject($subject)
          ->with(['bodyMsg' => $this->data['message'],'bodyName'=>$this->data['name'],'bodyEmail'=>$this->data['email']]);
          }

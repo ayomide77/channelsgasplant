@@ -24,11 +24,6 @@ class ContactController extends Controller
       ]
       );
 
-
-      $name = $request->name;
-      $email = $request->email;
-      $message =$request->message;
-
       $data = [
           'name'=>$request->name,
           'email'=>$request->email,
@@ -36,7 +31,7 @@ class ContactController extends Controller
       ];
 
     //    Mail::to($email)->send(new ContactusEmail($name,$email,$message));
-     Mail::to($request->email)->send(new ContactusEmail($data,$message));
+     Mail::to('info@chnlsgasplant.com')->send(new ContactusEmail($data));
 
     //RETURN TO PREVIOUS PAGE WITH SUCCESS MESSAGE
 
