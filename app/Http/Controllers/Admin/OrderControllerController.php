@@ -13,7 +13,7 @@ class OrderControllerController extends Controller
 {
 
 
-    // FUNCTION TO RETURN ALL ORDERS
+    // METHOD TO RETURN ALL ORDERS
     public function listOrders()
     {
         //GET ALL ORDERS 
@@ -21,7 +21,7 @@ class OrderControllerController extends Controller
         return view('admin.orders.index',compact('orders'));
         }
 
-        // FUNCTION TO GET ALL COMPLETED ORDERS
+        // METHOD TO GET ALL COMPLETED ORDERS
     public function completedOrders()
     {
         //GET ALL COMPLETED ORDERS
@@ -30,7 +30,7 @@ class OrderControllerController extends Controller
     }
 
 
-    // FUNCTION TO GET ALL PENDING ORDERS
+    // METHOD TO GET ALL PENDING ORDERS
     public function pendingOrders()
     {
         //GET ALL PENDING ORDERS 
@@ -57,7 +57,7 @@ class OrderControllerController extends Controller
 
     }
 
-        // FUNCTION TO GET ALL SALES BY PULLING COMPLETED ORDERS
+        // METHOD TO GET ALL SALES BY PULLING COMPLETED ORDERS
         public function sales(){
 
             //GET ALL COMPLETED ORDERS 
@@ -69,7 +69,7 @@ class OrderControllerController extends Controller
 
 
 
-    // FUNCTION TO GENERATE INVOICE FOR BUYER
+    // METHOD TO GENERATE INVOICE FOR BUYER
     public function generateInvoice($order_no){
 
         $user_invoice = Order::where([
@@ -99,7 +99,7 @@ class OrderControllerController extends Controller
 
 
 
-    // FUNCTION TO GENERATE RECEIPT FOR BUYER
+    // METHOD TO GENERATE RECEIPT FOR BUYER
     public function generateReceipt($order_no){
 
         $user_reciepts = Order::where([

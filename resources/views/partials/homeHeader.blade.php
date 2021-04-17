@@ -86,8 +86,8 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="{{ request()->is('testimonial/create') ? 'active' : '' }}"
-                                        href="{{ route('testimonial.create') }}">Testimonial</a>
+                                    <a class="{{ request()->is('testimonial') ? 'active' : '' }}"
+                                        href="{{ route('testimonial') }}">Testimonial</a>
                                 </li>
                             </ul>
                         </div>

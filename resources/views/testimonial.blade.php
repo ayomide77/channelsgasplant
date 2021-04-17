@@ -40,31 +40,56 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
+                    
+                       {{-- INCLUDE  ALERT MESSAGE --}}
+                    @include('partials._alerts')
+                       {{-- INCLUDE  ALERT MESSAGE --}}
+
                     <div class="contact-form pt-45">
                         <h6>We love to hear from our customers</h6>
-                        <form 
-                            >
+                        <form method="POST" action="{{route('testimonial')}}">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
                                         <label>Full Name :</label>
-                                        <input name="name" type="text" data-error="Name is required." required="required">
+
+                                     <input id="name" type="text"
+                                    class="form-control @error('name') is-invalid @enderror" name="name"  placeholder="Enter your full name">
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <label>Email Address :</label>
-                                        <input type="email" name="email" data-error="Valid email is required."
-                                            required="required">
+                                        <label>Your Occupation:</label>
+                                       
+                                    <input id="occupation" type="text"
+                                    class="form-control @error('occupation') is-invalid @enderror" name="occupation"  placeholder="Enter your occupation">
+
+                                @error('occupation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="singel-form form-group">
                                         <label>Tell us about your service experience:</label>
-                                        <textarea name="message" data-error="Please,leave us a message."
-                                            required="required"></textarea>
+                                        <textarea name="message"   class="form-control @error('message') is-invalid @enderror" ></textarea>
+
+                                            @error('message')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>

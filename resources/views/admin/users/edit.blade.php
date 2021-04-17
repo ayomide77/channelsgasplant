@@ -28,8 +28,7 @@
                                                     <div class="row">
     
                                                         <div class="col-xl-2 col-lg-12 col-md-4">
-    
-                                                            
+                
                                                             <div class="upload mt-4 pr-md-4">
                                                                 <input type="file" name="image" id="input-file-max-fs"
                                                                     class="dropify"

@@ -15,17 +15,33 @@
 
     Route::get('/','GeneralController@index')->name('index');
     Route::get('about', 'GeneralController@about')->name('about');
-    Route::get('contact', 'GeneralController@contact')->name('contact');
+
+    // <------- CONTACT US ROUTES --------->
+    Route::get('contact', 'ContactController@index')->name('contact');
+    Route::post('contact', 'ContactController@send')->name('contact.send');
+    // <------- CONTACT US ROUTES --------->
+
     Route::get('products','GeneralController@products')->name('products');
-    Route::get('product/{slug}','GeneralController@show')->name('product');
-    Route::resource('testimonial','TestimonialController');
+    Route::get('product/{id}','GeneralController@show')->name('product');
+
+
+    // <------- TESTIMOMIAL ROUTES   --------->
+    Route::get('testimonial','TestimonialController@index')->name('testimonial');
+    Route::post('testimonial','TestimonialController@store')->name('testimonial');
+    // <------- TESTIMOMIAL ROUTES --------->
+
+    
+
+    // <------------ ADMIN LOGIN ROUTE ------------->
+    Route::get('admin/auth','Admin\AuthController@login')->name('adminLogin');
     // <------------ ADMIN LOGIN ROUTE ------------->
 
-    Route::get('admin/auth','Admin\AuthController@login')->name('adminLogin');
+
 
     Route::get('/test-email', function () {
-        return view('emails.SendEmailReceipt');
+        return view('emails.SendContactusEmail');
     });
+
 
 // CUSTOMER CART ROUTE
 Route::group(['prefix' => 'cart'], function () {
@@ -96,4 +112,5 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('staff','StaffController');
     Route::resource('users','UserController');
+    Route::resource('testimonial','TestimonialController');
 });

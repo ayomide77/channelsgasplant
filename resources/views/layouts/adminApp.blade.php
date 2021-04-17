@@ -10,8 +10,9 @@
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&amp;display=swap" rel="stylesheet">
-    <link href="/chnlsgasplant/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/chnlsgasplant/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+
+    <link href="{{asset('chnlsgasplant/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('chnlsgasplant/assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     {{-- dashboard css --}}

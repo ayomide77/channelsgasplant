@@ -62,47 +62,36 @@
 
 <body>
 
-    <!--====== PREALOADER PART START ======-->
-
-    {{-- <div class="preloader">
-        <div class="thecube">
-            <div class="cube c1"></div>
-            <div class="cube c2"></div>
-            <div class="cube c4"></div>
-            <div class="cube c3"></div>
-        </div>
-    </div> --}}
-
-
+    <!--====== PREALOADER  START ======-->
     <div class="preloader">
         <div class="preloader-body">
             <div class="cssload-container">
-                <div class="cssload-speeding-wheel"></div>
+            <div class="cssload-speeding-wheel"></div>
             </div>
             <p>Loading...</p>
         </div>
     </div>
+    <!--====== PREALOADER  ENDS  ======-->
+
     
-
-    <!--====== PREALOADER PART START ======-->
-
-    <!--====== HEADER PART START ======-->
-
+    <!--====== HEADER  START ======-->
     @yield('header')
+    <!--====== HEADER  ENDS ======-->
 
-    <!--====== HEADER PART ENDS ======-->
 
-    <!--====== SLIDER PART START ======-->
-
+    <!--====== SLIDER  START ======-->
     @yield('slider')
+    <!--====== SLIDER  ENDS ======-->
 
-    <!--====== SLIDER PART ENDS ======-->
 
+    <!--====== CONTENT  STARTS ======-->
     @yield('content')
+    <!--====== CONTENT  ENDS ======-->
 
-    <!--====== FOOTER PART START ======-->
 
+    <!--====== FOOTER  START ======-->
     @include('partials.footer')
+    <!--====== FOOTER  ENDS ======-->
 
 
     <!--====== jquery js ======-->

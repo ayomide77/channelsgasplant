@@ -6,13 +6,16 @@
     <div class="layout-px-spacing">
        
            {{-- INCLUDE PAGE HEADER --}}
-           @include('admin.includes.header',['headerTitle'=>'Customers','title1'=>'Customers List'])
+           @include('admin.includes.header',['headerTitle'=>'Staff','title1'=>'Staff','title2'=>'List'])
            {{-- INCLUDE PAGE HEADER --}}
 
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
             <div class="widget-content widget-content-area br-6">
                 <div class="table-responsive mb-4 mt-4">
+                   {{-- include flash mesage --}}
+            @include('admin.partials._alerts')
+            {{-- include flash mesage --}}
                     <table id="customersTable" class="table table-hover non-hover" style="width:100%">
                         <thead>
                             <tr>

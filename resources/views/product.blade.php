@@ -40,14 +40,6 @@
                             <h3>{{ $product->name }}</h3>
                         </div>
 
-
-                        <div class="share pt-25">
-                            <ul>
-                                <li class="head">Share :</li>
-                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            </ul>
-                        </div>
                         <div class="price pt-15">
                             <h3>&#8358;{{ $product->price }}</h3>
                         </div>

@@ -6,88 +6,46 @@ use App\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+
+
 class TestimonialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('testimonial.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     
-    public function store(Request $request)
-    {
-        
-        if (!Auth::check()) {
+// <---- GET METOHD FOR TESTIMONIAL PAGE  --->>
+public function index()
+{
+    //RETURN VIEW
+    return view('testimonial');
+}
 
-            return redirect()->route('login')->with('error','Please login or create account to continue');
-        
-            } 
 
+// <-- POST METHOD FOR TESTIMONIAL FORM --->
+public function store(Request $request){
+
+    // VALIDATE USER INPUT
+    $request->validate([
+    'name' => 'required|max:255',
+    'occupation' => 'required|max:255',
+    'message' => 'required',
+    ]
+    );
+
+    // INSTANTIATE OUR MODEL FOR DATA STORAGE
+    $testimonial = new Testimonial();
+    $testimonial->fullname = $request->name;
+    $testimonial->occupation = $request->occupation;
+    $testimonial->details = $request->message;
+
+    //RETURN TO PREVIOUS PAGE WITH SUCCESS MESSAGE
+    if($testimonial->save()){
+
+    return back()->with('success','Thank you for your time, your testimonial has been received.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Testimonial $testimonial)
-    {
-        //
-    }
+    //RETURN TO PREVIOUS PAGE WITH ERRROR MESSAGE
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Testimonial $testimonial)
-    {
-        //
-    }
+    return back()->with('error','Opps .. something went wrong, please try again.');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Testimonial $testimonial)
-    {
-        //
-    }
+}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Testimonial  $testimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Testimonial $testimonial)
-    {
-        //
-    }
 }

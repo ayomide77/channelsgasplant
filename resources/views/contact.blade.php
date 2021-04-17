@@ -54,31 +54,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
+                     {{-- INCLUDE  ALERT MESSAGE --}}
+                    @include('partials._alerts')
+                       {{-- INCLUDE  ALERT MESSAGE --}}
                     <div class="contact-form pt-45">
                         <h6>Leave Reply</h6>
-                        <form id="contact-form" action="http://webpro.themepul.com/Fresh_Vial/demo/freeshvila/contact.php"
-                            data-toggle="validator">
+                        <form action="{{route('contact.send')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <label>Nick name :</label>
-                                        <input name="name" type="text" data-error="Name is required." required="required">
+                                        <label>Your name :</label>
+                                        <input name="name" type="text" class="form-control @error('occupation') is-invalid @enderror"  required="required">
+                                         @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
                                         <label>Email Address :</label>
-                                        <input type="email" name="email" data-error="Valid email is required."
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" 
                                             required="required">
+                                             @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="singel-form form-group">
                                         <label>Write a message :</label>
-                                        <textarea name="message" data-error="Please,leave us a message."
+                                        <textarea name="message" class="form-control @error('message') is-invalid @enderror" 
                                             required="required"></textarea>
+                                             @error('message')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -127,6 +145,7 @@
             </div>
         </div>
     </section>
+
 
     <!--====== CONACT PART ENDS ======-->
 

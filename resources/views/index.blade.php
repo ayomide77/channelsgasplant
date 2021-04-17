@@ -92,8 +92,8 @@
 
 <!--====== SERVICES PART ENDS ======-->
 
-
-<section id="client-part" class="pt-80 mb-5">
+        @if (count($testimonials)>0)
+        <section id="client-part" class="pt-80 mb-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -112,84 +112,36 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+              <div class="row">
             <div class="client-slied owl-carousel">
-                <div class="col-lg-12">
+                @foreach ($testimonials as $testimony)
+                    <div class="col-lg-12">
                     <div class="singel-client mt-50">
                         <div class="client-thum">
                             <div class="client-img">
-                                <img src="/chnlsgasplant/images/client/c-1.jpg" alt="Client">
+                                <img src="/chnlsgasplant/images/user/avatar_90x90.png" alt="{{$testimony->name}}">
                             </div>
                             <div class="client-head">
-                                <h5>Anil Barua</h5>
-                                <span>Laravel Developer</span>
+                                <h5>{{$testimony->fullname}}</h5>
+                                <span>{{$testimony->occupation}}</span>
                             </div>
                         </div>
                         <div class="client-text mt-35">
-                            <p>Nullam condimentum varius ipsum at viverra. Donec tortor metus, sollicitudin vitae est
-                                id, ullamcorper pretium tortor. Phasellus bibendum augue ac arcu pharetra congue. Proin
-                                accumsan elit et elit vehicula, sit amet fringilla.</p>
+                            <p>{{$testimony->details}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="singel-client mt-50">
-                        <div class="client-thum">
-                            <div class="client-img">
-                                <img src="/chnlsgasplant/images/client/c-2.jpg" alt="Client">
-                            </div>
-                            <div class="client-head">
-                                <h5>Toya Kanti Roy</h5>
-                                <span>Graphic Designer</span>
-                            </div>
-                        </div>
-                        <div class="client-text mt-35">
-                            <p>Nullam condimentum varius ipsum at viverra. Donec tortor metus, sollicitudin vitae est
-                                id, ullamcorper pretium tortor. Phasellus bibendum augue ac arcu pharetra congue. Proin
-                                accumsan elit et elit vehicula, sit amet fringilla.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-client mt-50">
-                        <div class="client-thum">
-                            <div class="client-img">
-                                <img src="/chnlsgasplant/images/client/c-1.jpg" alt="Client">
-                            </div>
-                            <div class="client-head">
-                                <h5>Anil Barua</h5>
-                                <span>Laravel Developer</span>
-                            </div>
-                        </div>
-                        <div class="client-text mt-35">
-                            <p>Nullam condimentum varius ipsum at viverra. Donec tortor metus, sollicitudin vitae est
-                                id, ullamcorper pretium tortor. Phasellus bibendum augue ac arcu pharetra congue. Proin
-                                accumsan elit et elit vehicula, sit amet fringilla.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-client mt-50">
-                        <div class="client-thum">
-                            <div class="client-img">
-                                <img src="/chnlsgasplant/images/client/c-2.jpg" alt="Client">
-                            </div>
-                            <div class="client-head">
-                                <h5>Toya Kanti Roy</h5>
-                                <span>Graphic Designer</span>
-                            </div>
-                        </div>
-                        <div class="client-text mt-35">
-                            <p>Nullam condimentum varius ipsum at viverra. Donec tortor metus, sollicitudin vitae est
-                                id, ullamcorper pretium tortor. Phasellus bibendum augue ac arcu pharetra congue. Proin
-                                accumsan elit et elit vehicula, sit amet fringilla.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
+                
+               
             </div>
         </div>
-    </div>
+          </div>
 </section>
+        @endif
+      
+  
 
 </div>
 
