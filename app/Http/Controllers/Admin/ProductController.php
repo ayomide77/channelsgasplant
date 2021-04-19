@@ -120,6 +120,9 @@ public function update(Request $request, Product $product)
 
 
     if($request->image != null){
+        
+        $file = public_path("/chnlsgasplant/images/product/$product->image");
+        unlink($file);
 
     $imageName = time().'.'.$request->image->extension();  
 

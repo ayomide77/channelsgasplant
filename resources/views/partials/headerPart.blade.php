@@ -36,7 +36,6 @@
                                         @if (Route::has('login'))
                                             <div class="top-right links">
                                                 @auth
-
                                                     @hasanyrole('Admin|Sales')
                                                     <li class="li"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                                     @endhasanyrole
