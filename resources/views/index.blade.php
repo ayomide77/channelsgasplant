@@ -38,7 +38,7 @@
             <div class="col-lg-4">
                 <div class="singel-services mt-45 pb-50">
                     <div class="services-icon">
-                        <img src="/chnlsgasplant/images/choose-us/icon-1.png" alt="Icon">
+                        <img src="/chnlsgasplant/images/choose-us/delivery.png" alt="Icon">
                     </div>
                     <div class="services-cont pt-25">
                         <h4>Door Step Delivery</h4>
@@ -49,7 +49,7 @@
 
                 <div class="singel-services">
                     <div class="services-icon">
-                        <img src="/chnlsgasplant/images/choose-us/icon-3.png" alt="Icon">
+                        <img src="/chnlsgasplant/images/choose-us/service.png" alt="Icon">
                     </div>
                     <div class="services-cont pt-25">
                         <h4>After Delivery Services</h4>
@@ -66,7 +66,7 @@
             <div class="col-lg-4">
                 <div class="singel-services right mt-45 text-right pb-50">
                     <div class="services-icon">
-                        <img src="/chnlsgasplant/images/choose-us/icon-2.png" alt="Icon">
+                        <img src="/chnlsgasplant/images/choose-us/bulk.png" alt="Icon">
                     </div>
                     <div class="services-cont pt-25">
                         <h4>Bulk LPG Services</h4>
@@ -77,7 +77,7 @@
 
                 <div class="singel-services right text-right ">
                     <div class="services-icon">
-                        <img src="/chnlsgasplant/images/choose-us/icon-4.png" alt="Icon">
+                        <img src="/chnlsgasplant/images/choose-us/location.jpg" alt="Icon">
                     </div>
                     <div class="services-cont pt-25">
                         <h4>Physical Location</h4>
