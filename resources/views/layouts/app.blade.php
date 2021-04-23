@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
-  
-          <!-- CSRF Token -->
+
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <!--====== Title ======-->
     <title>{{ $title ?? 'Channels Gas Plant | LPG Gas Refill and Delivery Services' }}</title>
 
@@ -53,10 +53,10 @@
     <link rel="stylesheet" href="{{ asset('chnlsgasplant/css/responsive.css') }}">
 
     <!--====== Toaster Alert css ======-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('chnlsgasplant/plugins/toastr/mdtoast.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('chnlsgasplant/plugins/toastr/mdtoast.css') }}">
 
     <!--====== Jquery alert css ======-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     @yield('custom_styles')
 </head>
 
@@ -66,28 +66,25 @@
     <div class="preloader">
         <div class="preloader-body">
             <div class="cssload-container">
-            <div class="cssload-speeding-wheel"></div>
+                <div class="cssload-speeding-wheel"></div>
             </div>
             <p>Loading...</p>
         </div>
     </div>
     <!--====== PREALOADER  ENDS  ======-->
 
-    
+
     <!--====== HEADER  START ======-->
     @yield('header')
     <!--====== HEADER  ENDS ======-->
-
 
     <!--====== SLIDER  START ======-->
     @yield('slider')
     <!--====== SLIDER  ENDS ======-->
 
-
     <!--====== CONTENT  STARTS ======-->
     @yield('content')
     <!--====== CONTENT  ENDS ======-->
-
 
     <!--====== FOOTER  START ======-->
     @include('partials.footer')
@@ -133,18 +130,19 @@
     <script src="{{ asset('chnlsgasplant/js/ajaxSetup.js') }}"></script>
 
     {{-- Toaster Alert Js --}}
-    <script type="text/javascript" src="{{asset('chnlsgasplant/plugins/toastr/mdtoast.js')}}"></script>
-    
+    <script type="text/javascript" src="{{ asset('chnlsgasplant/plugins/toastr/mdtoast.js') }}"></script>
+
     {{-- Jquery alert js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     @yield('custom_scripts')
     <script>
-    $(window).on('load',function(){
-    setTimeout(function(){ // allowing 3 secs to fade out loader
-    $('.preloader').fadeOut('slow');
-    },2000);
-    });
+        $(window).on('load', function() {
+            setTimeout(function() { // allowing 3 secs to fade out loader
+                $('.preloader').fadeOut('slow');
+            }, 2000);
+        });
+
     </script>
 </body>
 

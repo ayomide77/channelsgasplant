@@ -2,30 +2,35 @@
     <nav id="topbar">
         <ul class="navbar-nav theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
-                <a href="{{route('admin.dashboard')}}">
+                <a href="{{ route('admin.dashboard') }}">
                     <img src="{{ asset('chnlsgasplant/images/favicon.png') }}" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="{{route('admin.dashboard')}}" class="nav-link"> Channels Gas Plant </a>
+                <a href="{{ route('admin.dashboard') }}" class="nav-link"> Channels Gas Plant </a>
             </li>
         </ul>
 
         <ul class="list-unstyled menu-categories" id="topAccordion">
 
             <li class="menu single-menu  {{ request()->is('admin/home') ? 'active' : '' }}">
-                <a href="{{route('admin.dashboard')}}">
+                <a href="{{ route('admin.dashboard') }}">
                     <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-cpu">
                             <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
                             <rect x="9" y="9" width="6" height="6"></rect>
                             <line x1="9" y1="1" x2="9" y2="4"></line>
                             <line x1="15" y1="1" x2="15" y2="4">
-                                </line><line x1="9" y1="20" x2="9" y2="23"></line>
-                                <line x1="15" y1="20" x2="15" y2="23"></line>
-                                <line x1="20" y1="9" x2="23" y2="9"></line>
-                                <line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line>
-                                <line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            </line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
                         <span>Dashboard</span>
                     </div>
                 </a>
@@ -44,12 +49,10 @@
                         <span>Home</span>
                     </div>
                 </a>
-
-           
             </li>
-           
+
             @role('Admin')
-            <li class="menu single-menu {{ request()->is(['admin/users','admin/users/create']) ? 'active' : '' }}">
+            <li class="menu single-menu {{ request()->is(['admin/users', 'admin/users/create']) ? 'active' : '' }}">
                 <a href="#app" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -70,23 +73,23 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
 
-                    
+
                     <li>
                         <a href="{{ route('admin.users.create') }}"> Create User </a>
                     </li>
 
-                     <li>
-                        <a href="{{route('admin.staff.index')}}"> Manage Staffs </a>
+                    <li>
+                        <a href="{{ route('admin.staff.index') }}"> Manage Staffs </a>
                     </li>
 
                     <li>
                         <a href="{{ route('admin.users.index') }}"> Manage Customers </a>
                     </li>
-                   
+
 
                 </ul>
             </li>
-            
+
             <li class="menu single-menu">
                 <a href="#page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -113,7 +116,8 @@
                 </ul>
             </li>
 
-            <li class="menu single-menu {{ request()->is(['admin/products/create','admin/products']) ? 'active' : '' }}">
+            <li
+                class="menu single-menu {{ request()->is(['admin/products/create', 'admin/products']) ? 'active' : '' }}">
                 <a href="#components" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -149,7 +153,7 @@
                 </ul>
             </li>
             @endrole
-          
+
 
             <li class="menu single-menu">
                 <a href="#uiKit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -169,7 +173,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('admin.sales')}}"> View Sales </a>
+                        <a href="{{ route('admin.sales') }}"> View Sales </a>
                     </li>
 
 
@@ -196,44 +200,56 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="tables" data-parent="#topAccordion">
                     <li>
-                        <a href="{{route('admin.orders')}}"> All Orders </a>
+                        <a href="{{ route('admin.orders') }}"> All Orders </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.pendingorders')}}"> Pending Orders </a>
+                        <a href="{{ route('admin.pendingorders') }}"> Pending Orders </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.completedorders')}}"> Completed Orders </a>
+                        <a href="{{ route('admin.completedorders') }}"> Completed Orders </a>
                     </li>
 
                 </ul>
             </li>
+
+
             @role('Admin')
-           
             <li class="menu single-menu">
-                        <a href="#more" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                                <span>More</span>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="more" data-parent="#topAccordion">
-                          
-                        <li>
-                        <a href="{{route('admin.ticket.index')}}"> Tickets </a>
-                    </li>
-                    </li>
-                        <li>
-                        <a href="{{route('admin.reportindex')}}"> Reports </a>
-                    </li>
+                <a href="#more" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-plus-circle">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        <span>More</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-chevron-down">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="more" data-parent="#topAccordion">
 
-                     <li>
-                        <a href="{{route('admin.testimonial.index')}}"> Testimonial </a>
+                    <li>
+                        <a href="{{ route('admin.ticket.index') }}"> Tickets </a>
                     </li>
+            </li>
+            <li>
+                <a href="{{ route('admin.reportindex') }}"> Reports </a>
+            </li>
 
-                        </ul>
-                    </li>
-            @endrole
+            <li>
+                <a href="{{ route('admin.testimonial.index') }}"> Testimonial </a>
+            </li>
+
         </ul>
+        </li>
+        @endrole
+        </ul>
+
     </nav>
 </div>

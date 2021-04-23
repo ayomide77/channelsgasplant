@@ -35,7 +35,8 @@ $quantity = request('quantity');
 
     $product = Product::find(request('id'));
 
-    $cartItem = Cart::add($product->id, $product->name, $quantity, $product->price, ['slug' => $product->slug,'image'=>$product->image,'description'=>$product->description,'size'=>$product->size]);
+    $cartItem = Cart::add($product->id, $product->name, $quantity, $product->price, [
+    'slug' => $product->slug,'image'=>$product->image,'description'=>$product->description,'size'=>$product->size]);
 
     return response()->json(['cartCount' => Cart::count()]);
 }
@@ -73,7 +74,6 @@ public function completeOrder(Request $request){
     ]);
 
 
-
     // FIND PRODUCT ORDERED
     $product = Product::where('name' , '=',$request['product_name'] )->first();
 
@@ -81,7 +81,7 @@ public function completeOrder(Request $request){
     // GENERATE A SINGLE ORDER NUMBER AND TIE IT TO MULTIPLE ORDERS
     $order_no = mt_rand(0,123456);
 
-    //  CHECK THE CART SEESION ITEM AND LOOP INOT DATABASE
+    // CHECK THE CART SEESION ITEM AND LOOP INOT DATABASE
     foreach(Cart::content() as $productCart){
     $order =  new Order();
     $order->order_no = $order_no;

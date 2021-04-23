@@ -12,17 +12,12 @@
 
 @section('content')
 
-@include('admin.partials._adminHeader')
 
  <!--  BEGIN MAIN CONTAINER  -->
  <div class="main-container" id="container">
 
     <div class="overlay"></div>
     <div class="search-overlay"></div>
-
-    <!--  BEGIN TOPBAR  -->
-   @include('admin.partials._adminNavBar')
-    <!--  END TOPBAR  -->
     
  <!--  BEGIN MAIN CONTAINER  -->
  <div class="main-container" id="container">

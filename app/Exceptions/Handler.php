@@ -51,7 +51,8 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
-            return response()->json(['User have not permission for this page access.']);
+            // return response()->json(['User have not permission for this page access.']);
+               return redirect()->back()->with('error','You are not authorized to access this page.');
         }
     
         return parent::render($request, $exception);

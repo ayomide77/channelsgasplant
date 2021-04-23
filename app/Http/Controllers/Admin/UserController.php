@@ -49,7 +49,7 @@ public function store(Request $request)
     //VALIDATE INPUT FIELDS
     $this->validate($request, [
     'name' => 'required',
-    'email' => 'required|email|unique:users,email',
+    'email' => 'required|email|unique:users',
     'password' => 'required|same:confirm-password',
     'phone' => 'required|numeric|unique:users',
     'city' => 'nullable',
