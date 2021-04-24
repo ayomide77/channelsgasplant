@@ -56,15 +56,7 @@
                                 </li>
                             </ul>
 
-                            <form class="card p-2">
 
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                         <div class="col-md-8 order-md-1">
                             <h4 class="mb-3">Billing address</h4>
@@ -142,17 +134,7 @@
                                     </div>
                                 </div>
                                 <hr class="mb-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="same-address">
-                                    <label class="custom-control-label" for="same-address">Shipping address is the same as
-                                        my billing address</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="save-info">
-                                    <label class="custom-control-label" for="save-info">Save this information for next
-                                        time</label>
-                                </div>
-                                <hr class="mb-4">
+
 
                                 <h4 class="mb-3">Payment</h4>
 

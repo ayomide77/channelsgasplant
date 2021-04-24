@@ -14,15 +14,20 @@
 //GENERALLY ACCESSIBLE ROUTES
 
     Route::get('/','GeneralController@index')->name('index');
-    Route::get('about', 'GeneralController@about')->name('about');
+   
+
+    // <------- ABOUT US ROUTES --------->
+   Route::get('about', 'AboutController@index')->name('about');
+    // <------- ABOUT US ROUTES --------->
+
 
     // <------- CONTACT US ROUTES --------->
     Route::get('contact', 'ContactController@index')->name('contact');
     Route::post('contact', 'ContactController@send')->name('contact.send');
     // <------- CONTACT US ROUTES --------->
 
-    Route::get('products','GeneralController@products')->name('products');
-    Route::get('product/{id}','GeneralController@show')->name('product');
+    Route::get('products','ProductController@index')->name('products');
+    Route::get('product/{id}','ProductController@show')->name('product');
 
 
     // <------- TESTIMOMIAL ROUTES   --------->
@@ -36,11 +41,6 @@
     Route::get('admin/auth','Admin\AuthController@login')->name('adminLogin');
     // <------------ ADMIN LOGIN ROUTE ------------->
 
-
-
-    Route::get('/test-email', function () {
-        return view('emails.SendContactusEmail');
-    });
 
 
 // CUSTOMER CART ROUTE
@@ -83,6 +83,7 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::get('invoice/{order_no}','OrderControllerController@generateInvoice')->name('generateinvoice');
     Route::get('reciept/{order_no}','OrderControllerController@generateReceipt')->name('generatereciept');
     Route::get('archived-product','ProductController@archived')->name('archivedproducts');
+
     // <--------- REPORT ROUTE ---------------->
     Route::get('report','ReportController@index')->name('reportindex');
     Route::post('report/product','ReportController@productReports')->name('productreports');
@@ -106,6 +107,7 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::get('email/receipt/{id}/{userid}','EmailController@sendReceipt')->name('sendreceipt');
     // <-------- EMAIL CONTROLLER ------->
 
+    
     Route::resource('profile','ProfileController');
     Route::resource('products','ProductController');
     Route::resource('products','ProductController');
